@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, StyleSheet, Alert } from "react-native";
 import { Card, Body, CardItem, Icon } from "native-base";
 export default class TicButton extends PureComponent {
   state = {
-    icon: "question-circle",
+    icon: "question",
     lock: false
   };
   render() {

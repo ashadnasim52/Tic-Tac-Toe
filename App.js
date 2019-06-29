@@ -440,6 +440,7 @@ export default class App extends PureComponent {
                 }}
               >
                 <Button
+                  primary
                   onPress={() => {
                     this.resetGame();
                   }}
