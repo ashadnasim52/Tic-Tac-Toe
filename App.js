@@ -77,6 +77,15 @@ export default class App extends PureComponent {
         }
       }
     }
+
+    //check all cards had been clicked or not
+    if (this.state.cardUsed.length == 9) {
+      //all cards had been clicked
+      this.setState({
+        isGameEnd: true,
+        WinMessage: "Match Ended..."
+      });
+    }
   };
 
   resetGame = () => {
@@ -387,7 +396,9 @@ export default class App extends PureComponent {
                 />
               </Col>
             </Row>
-            {this.state.WinMessage === "" ? (
+            {this.state.isGameEnd ? (
+              <React.Fragment />
+            ) : (
               <Row
                 style={{
                   flex: 0,
@@ -403,8 +414,6 @@ export default class App extends PureComponent {
                   {this.state.activePlayer} chance
                 </Text>
               </Row>
-            ) : (
-              <React.Fragment />
             )}
             <Row
               style={{
@@ -421,7 +430,7 @@ export default class App extends PureComponent {
                 {this.state.WinMessage}
               </Text>
             </Row>
-            {this.state.WinMessage != "" ? (
+            {this.state.isGameEnd ? (
               <Row
                 style={{
                   flex: 0,
