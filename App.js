@@ -1,6 +1,6 @@
 <script src="http://192.168.43.64:8097" />;
 
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Image, View, StyleSheet, Alert } from "react-native";
 import {
   Container,
@@ -22,14 +22,14 @@ import {
 } from "native-base";
 import TicButton from "./components/TicButton";
 
-export default class App extends Component {
+export default class App extends PureComponent {
   state = {
     playerOne: [], //circle
     playerTwo: [], //cross circle
     cardUsed: [], //item in which clicked
     WinMessage: "",
     activePlayer: "playerOne",
-    restart: false
+    isGameEnd: false
   };
   addcard = (number, player) => {
     if (this.state.cardUsed.includes(number)) {
@@ -85,7 +85,7 @@ export default class App extends Component {
       cardUsed: [], //item in which clicked
       WinMessage: "",
       activePlayer: "playerOne",
-      resetGame: true
+      isGameEnd: false
     });
     this.forceUpdate();
   };
@@ -95,94 +95,166 @@ export default class App extends Component {
       switch (one) {
         case "0":
           if (data.includes("3") && data.includes("6")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("2") && data.includes("1")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("4") && data.includes("8")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           break;
         case "1":
           if (data.includes("0") && data.includes("2")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("4") && data.includes("7")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           break;
         case "2":
           if (data.includes("0") && data.includes("1")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("5") && data.includes("8")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("4") && data.includes("6")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           break;
         case "3":
           if (data.includes("0") && data.includes("6")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("4") && data.includes("5")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           break;
         case "4":
           if (data.includes("1") && data.includes("7")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("3") && data.includes("5")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("0") && data.includes("8")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("6") && data.includes("2")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
 
           break;
         case "5":
           if (data.includes("4") && data.includes("3")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("2") && data.includes("8")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
 
           break;
         case "6":
           if (data.includes("0") && data.includes("3")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("7") && data.includes("8")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("4") && data.includes("2")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           break;
         case "7":
           if (data.includes("6") && data.includes("8")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("1") && data.includes("4")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           break;
         case "8":
           if (data.includes("5") && data.includes("2")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("7") && data.includes("6")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
           if (data.includes("4") && data.includes("0")) {
-            this.setState({ WinMessage: `${this.state.activePlayer} Won` });
+            this.setState({
+              WinMessage: `${this.state.activePlayer} Won`,
+              isGameEnd: true
+            });
           }
 
           break;
@@ -224,7 +296,7 @@ export default class App extends Component {
                   player={this.state.activePlayer}
                   number="0"
                   key="0"
-                  restartGame={this.state.restartGame}
+                  isGameEnd={this.state.isGameEnd}
                 />
               </Col>
               <Col>
@@ -233,6 +305,7 @@ export default class App extends Component {
                   player={this.state.activePlayer}
                   number="1"
                   key="1"
+                  isGameEnd={this.state.isGameEnd}
                 />
               </Col>
               <Col>
@@ -241,6 +314,7 @@ export default class App extends Component {
                   player={this.state.activePlayer}
                   number="2"
                   key="2"
+                  isGameEnd={this.state.isGameEnd}
                 />
               </Col>
             </Row>
@@ -256,6 +330,7 @@ export default class App extends Component {
                   player={this.state.activePlayer}
                   number="3"
                   key="3"
+                  isGameEnd={this.state.isGameEnd}
                 />
               </Col>
               <Col>
@@ -264,6 +339,7 @@ export default class App extends Component {
                   player={this.state.activePlayer}
                   number="4"
                   key="4"
+                  isGameEnd={this.state.isGameEnd}
                 />
               </Col>
               <Col>
@@ -272,6 +348,7 @@ export default class App extends Component {
                   player={this.state.activePlayer}
                   number="5"
                   key="5"
+                  isGameEnd={this.state.isGameEnd}
                 />
               </Col>
             </Row>
@@ -287,6 +364,7 @@ export default class App extends Component {
                   player={this.state.activePlayer}
                   number="6"
                   key="6"
+                  isGameEnd={this.state.isGameEnd}
                 />
               </Col>
               <Col>
@@ -295,6 +373,7 @@ export default class App extends Component {
                   player={this.state.activePlayer}
                   number="7"
                   key="7"
+                  isGameEnd={this.state.isGameEnd}
                 />
               </Col>
               <Col>
@@ -303,6 +382,7 @@ export default class App extends Component {
                   player={this.state.activePlayer}
                   number="8"
                   key="8"
+                  isGameEnd={this.state.isGameEnd}
                 />
               </Col>
             </Row>

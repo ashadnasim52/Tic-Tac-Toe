@@ -7,22 +7,27 @@ export default class TicButton extends PureComponent {
     lock: false
   };
   render() {
-    const { player, number } = this.props;
+    const { player, number, isGameEnd } = this.props;
 
     return (
       <TouchableOpacity
         style={styles.outerContainer}
         onPress={() => {
-          if (this.state.lock) {
-            //tapped alerady
-            Alert.alert("Already tapped");
+          if (isGameEnd) {
+            //game over
+            Alert.alert("game ended ");
           } else {
-            this.props.addcard(number, player);
-            this.setState({ lock: true });
-            if (player === "playerOne") {
-              this.setState({ icon: "circle" });
+            if (this.state.lock) {
+              //tapped alerady
+              Alert.alert("Already tapped");
             } else {
-              this.setState({ icon: "times" });
+              this.props.addcard(number, player);
+              this.setState({ lock: true });
+              if (player === "playerOne") {
+                this.setState({ icon: "circle" });
+              } else {
+                this.setState({ icon: "times" });
+              }
             }
           }
         }}
@@ -57,6 +62,6 @@ const styles = StyleSheet.create({
   },
   ticIcon: {
     fontSize: 52,
-    color: "red"
+    color: "blue"
   }
 });
