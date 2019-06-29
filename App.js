@@ -29,7 +29,8 @@ export default class App extends PureComponent {
     cardUsed: [], //item in which clicked
     WinMessage: "",
     activePlayer: "playerOne",
-    isGameEnd: false
+    isGameEnd: false,
+    gameResetedTimes: 0
   };
   addcard = (number, player) => {
     if (this.state.cardUsed.includes(number)) {
@@ -85,9 +86,9 @@ export default class App extends PureComponent {
       cardUsed: [], //item in which clicked
       WinMessage: "",
       activePlayer: "playerOne",
-      isGameEnd: false
+      isGameEnd: false,
+      gameResetedTimes: this.state.gameResetedTimes + 1
     });
-    this.forceUpdate();
   };
 
   checkWinner = data => {
@@ -295,7 +296,7 @@ export default class App extends PureComponent {
                   addcard={this.addcard}
                   player={this.state.activePlayer}
                   number="0"
-                  key="0"
+                  key={this.state.gameResetedTimes}
                   isGameEnd={this.state.isGameEnd}
                 />
               </Col>
@@ -304,7 +305,7 @@ export default class App extends PureComponent {
                   addcard={this.addcard}
                   player={this.state.activePlayer}
                   number="1"
-                  key="1"
+                  key={this.state.gameResetedTimes}
                   isGameEnd={this.state.isGameEnd}
                 />
               </Col>
@@ -313,7 +314,7 @@ export default class App extends PureComponent {
                   addcard={this.addcard}
                   player={this.state.activePlayer}
                   number="2"
-                  key="2"
+                  key={this.state.gameResetedTimes}
                   isGameEnd={this.state.isGameEnd}
                 />
               </Col>
@@ -329,7 +330,7 @@ export default class App extends PureComponent {
                   addcard={this.addcard}
                   player={this.state.activePlayer}
                   number="3"
-                  key="3"
+                  key={this.state.gameResetedTimes}
                   isGameEnd={this.state.isGameEnd}
                 />
               </Col>
@@ -338,7 +339,7 @@ export default class App extends PureComponent {
                   addcard={this.addcard}
                   player={this.state.activePlayer}
                   number="4"
-                  key="4"
+                  key={this.state.gameResetedTimes}
                   isGameEnd={this.state.isGameEnd}
                 />
               </Col>
@@ -347,7 +348,7 @@ export default class App extends PureComponent {
                   addcard={this.addcard}
                   player={this.state.activePlayer}
                   number="5"
-                  key="5"
+                  key={this.state.gameResetedTimes}
                   isGameEnd={this.state.isGameEnd}
                 />
               </Col>
@@ -363,7 +364,7 @@ export default class App extends PureComponent {
                   addcard={this.addcard}
                   player={this.state.activePlayer}
                   number="6"
-                  key="6"
+                  key={this.state.gameResetedTimes}
                   isGameEnd={this.state.isGameEnd}
                 />
               </Col>
@@ -372,7 +373,7 @@ export default class App extends PureComponent {
                   addcard={this.addcard}
                   player={this.state.activePlayer}
                   number="7"
-                  key="7"
+                  key={this.state.gameResetedTimes}
                   isGameEnd={this.state.isGameEnd}
                 />
               </Col>
@@ -381,7 +382,7 @@ export default class App extends PureComponent {
                   addcard={this.addcard}
                   player={this.state.activePlayer}
                   number="8"
-                  key="8"
+                  key={this.state.gameResetedTimes}
                   isGameEnd={this.state.isGameEnd}
                 />
               </Col>
